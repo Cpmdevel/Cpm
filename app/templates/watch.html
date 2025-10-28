@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2 class="mb-3">{{ movie.title }}</h2>
+  <p class="text-muted">{{ movie.description }}</p>
+  <div class="ratio ratio-16x9 border rounded overflow-hidden">
+    <video controls crossorigin playsinline>
+      <source src="{{ movie.video_url }}" type="video/mp4" />
+      {% for s in subtitles %}
+        <track kind="subtitles" srclang="{{ s.lang }}" label="{{ s.label }}" src="{{ url_for('static', filename=s.file_path_rel) }}" {% if loop.index0 == 0 %}default{% endif %}>
+      {% endfor %}
+      Таны браузер видео тоглуулахыг дэмжихгүй байна.
+    </video>
+  </div>
+{% endblock %}
