@@ -2,3 +2,9 @@ requests==2.32.3
 rich==13.7.1
 pystyle
 pyfiglet==1.0.2
+fastapi==0.115.2
+uvicorn==0.30.6
+sqlmodel==0.0.21
+passlib[bcrypt]==1.7.4
+python-jose==3.3.0
+httpx==0.27.2
