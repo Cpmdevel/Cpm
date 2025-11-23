@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2 class="mb-3">VIP гишүүнчлэл</h2>
+  {% if active and active.is_active %}
+    <div class="alert alert-success">
+      Таны VIP идэвхтэй. Дуусах өдөр: <strong>{{ active.end_date.strftime('%Y-%m-%d') }}</strong>
+    </div>
+  {% else %}
+    <div class="alert alert-info">Танд идэвхтэй VIP байхгүй.</div>
+  {% endif %}
+
+  <form method="post" action="{{ url_for('main.purchase_vip') }}">
+    <button class="btn btn-warning">30 хоногийн VIP идэвхжүүлэх</button>
+  </form>
+{% endblock %}
